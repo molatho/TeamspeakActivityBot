@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace SchmuserBot.Model
+{
+    public class Client
+    {
+        public string ClientId { get; set; }
+        public string DisplayName { get; set; }
+        public TimeSpan ActiveTime { get; set; }
+
+        public override string ToString()
+        {
+            return $"{ActiveTime.ToString(@"ddd\T\ hh\:mm\:ss")} - {DisplayName}";
+        }
+    }
+}
