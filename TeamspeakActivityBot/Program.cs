@@ -50,7 +50,7 @@ namespace SchmuserBot
         private static async Task RunBot()
         {
             var bot = await GetConnectedClient();
-            var lastUserStatsUpdate = DateTime.MinValue;
+            var lastUserStatsUpdate = DateTime.Now;
             var lastChannelUpdate = DateTime.MinValue;
             while (!Console.KeyAvailable)
             {
