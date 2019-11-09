@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace SchmuserBot.Utils
+namespace TeamspeakActivityBot.Utils
 {
     class JsonFile<T> where T : new()
     {

@@ -1,13 +1,13 @@
 ﻿using Newtonsoft.Json;
-using SchmuserBot.Model;
-using SchmuserBot.Utils;
+using TeamspeakActivityBot.Model;
+using TeamspeakActivityBot.Utils;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace SchmuserBot
+namespace TeamspeakActivityBot
 {
     class ClientManager
     {
