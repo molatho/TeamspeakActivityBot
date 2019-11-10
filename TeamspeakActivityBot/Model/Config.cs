@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SchmuserBot.Model
+namespace TeamspeakActivityBot.Model
 {
     public class Config
     {
@@ -18,6 +18,8 @@ namespace SchmuserBot.Model
         public string ChannelNameFormat { get; set; }
         public int ChannelId { get; set; }
         public DateTime LoggingSince { get; set; }
+        public bool LogOutputMuted { get; set; }
+
         public Config()
         {
             Host = "localhost";
@@ -31,6 +33,7 @@ namespace SchmuserBot.Model
             ChannelNameFormat = "[cspacer9]|| MVP: %NAME% ||";
             ChannelId = -1;
             LogAFK = false;
+            LogOutputMuted = false;
             UserGroups = new int[] { 6, 7, 9};
         }
     }

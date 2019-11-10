@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SchmuserBot.Model
+namespace TeamspeakActivityBot.Model
 {
     public class Client
     {

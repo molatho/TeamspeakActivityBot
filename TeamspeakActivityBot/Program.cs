@@ -1,4 +1,4 @@
-﻿using SchmuserBot.Model;
+﻿using TeamspeakActivityBot.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,7 +10,7 @@ using TeamSpeak3QueryApi.Net;
 using TeamSpeak3QueryApi.Net.Specialized;
 using TeamSpeak3QueryApi.Net.Specialized.Responses;
 
-namespace SchmuserBot
+namespace TeamspeakActivityBot
 {
     class Program
     {
@@ -50,7 +50,7 @@ namespace SchmuserBot
         private static async Task RunBot()
         {
             var bot = await GetConnectedClient();
-            var lastUserStatsUpdate = DateTime.MinValue;
+            var lastUserStatsUpdate = DateTime.Now;
             var lastChannelUpdate = DateTime.MinValue;
             while (!Console.KeyAvailable)
             {
@@ -160,7 +160,10 @@ namespace SchmuserBot
                 });
             }
 
-            if ((!clientInfo.Away && !ConfigManager.Config.LogAFK) && clientInfo.IdleTime < ConfigManager.Config.MaxIdleTime)
+            var conditionAway = (!clientInfo.Away && !ConfigManager.Config.LogAFK);
+            var conditionMuted = (!clientInfo.IsOutputMuted() && !ConfigManager.Config.LogOutputMuted);
+
+            if ((conditionAway && conditionMuted) && clientInfo.IdleTime < ConfigManager.Config.MaxIdleTime)
             {
                 client.ActiveTime += (DateTime.Now - lastRun);
                 return true;
